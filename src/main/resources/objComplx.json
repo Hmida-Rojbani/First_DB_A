@@ -1,0 +1,10 @@
+{
+	"name" : "John Doe",
+	"dob" : "2000-03-04",
+	"email" : "john.doe@gmail.com",
+	"matricule" : {
+		"code" : "emp0001",
+		"expireDate": "2022-12-31",
+		"creator":"admin1"
+	}
+}

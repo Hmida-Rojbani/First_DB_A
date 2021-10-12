@@ -19,5 +19,7 @@ public class EmployeeEntity {
 	private String email;
 	
 	private LocalDate dob;
+	@OneToOne
+	private Matricule matricule;
 
 }

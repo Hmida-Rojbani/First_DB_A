@@ -7,7 +7,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import de.tekup.db.entities.EmployeeEntity;
+import de.tekup.db.entities.Matricule;
 import de.tekup.db.repositories.EmployeeRepository;
+import de.tekup.db.repositories.MatriculeRepository;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -15,9 +17,13 @@ import lombok.AllArgsConstructor;
 public class EmployeeService {
 
 	private EmployeeRepository empRepos;
+	private MatriculeRepository matRepos;
 
 	// SQL : insert
 	public EmployeeEntity saveToDB(EmployeeEntity entity) {
+		Matricule matricule = entity.getMatricule();
+		matRepos.save(matricule);
+		entity.setMatricule(matricule);
 		return empRepos.save(entity);
 	}
 
