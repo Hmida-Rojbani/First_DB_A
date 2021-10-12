@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -24,6 +26,7 @@ public class Matricule {
 	
 	private String creator;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "matricule")
 	private EmployeeEntity employee;
 	
