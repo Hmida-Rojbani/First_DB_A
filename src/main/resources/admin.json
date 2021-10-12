@@ -1,0 +1,13 @@
+{
+	"name" : "admin1",
+	"matricules" :[
+		{
+		"code": "emp0001",
+        "expireDate": "2022-12-31"
+		},
+		{
+		"code": "emp0002",
+        "expireDate": "2021-12-31"
+		}
+	]
+}

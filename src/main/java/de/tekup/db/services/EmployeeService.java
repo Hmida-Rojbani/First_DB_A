@@ -21,9 +21,9 @@ public class EmployeeService {
 
 	// SQL : insert
 	public EmployeeEntity saveToDB(EmployeeEntity entity) {
-		Matricule matricule = entity.getMatricule();
-		matRepos.save(matricule);
-		entity.setMatricule(matricule);
+		//Matricule matricule = entity.getMatricule();
+		//matRepos.save(matricule);
+		//entity.setMatricule(matricule);
 		return empRepos.save(entity);
 	}
 

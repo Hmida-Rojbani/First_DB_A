@@ -19,7 +19,7 @@ public class EmployeeEntity {
 	private String email;
 	
 	private LocalDate dob;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Matricule matricule;
 
 }
