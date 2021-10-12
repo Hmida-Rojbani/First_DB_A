@@ -1,5 +1,6 @@
 package de.tekup.db.controllers;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,11 @@ public class EmployeeCtrl {
 	@GetMapping("/employee/get/{id}")
 	public EmployeeEntity getEmpByID(@PathVariable("id") int id) {
 		return empService.getEmpById(id);
+	}
+	
+	@GetMapping("/employee/get")
+	public List<EmployeeEntity> getAllEmp() {
+		return empService.getAllEmployees();
 	}
 	
 	@ExceptionHandler(NoSuchElementException.class)
