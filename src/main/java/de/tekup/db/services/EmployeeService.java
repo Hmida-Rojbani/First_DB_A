@@ -53,4 +53,11 @@ public class EmployeeService {
 			employee.setEmail(newEmployee.getEmail());
 		return empRepos.save(employee);
 	}
+	
+	//SQL :Delete
+	public EmployeeEntity deleteEmpById(int id) {
+		EmployeeEntity employee=getEmpById(id);
+		empRepos.deleteById(id);
+		return employee;
+	}
 }
