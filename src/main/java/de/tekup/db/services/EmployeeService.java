@@ -35,4 +35,9 @@ public class EmployeeService {
 	public List<EmployeeEntity> getAllEmployees(){
 		return empRepos.findAll();
 	}
+	
+	//SQL : select * from employee where name = name
+		public EmployeeEntity getEmpByName(String name) {
+			return empRepos.findByNameIgnoreCase(name).orElseThrow(()->new NoSuchElementException("Employee name not found"));
+		}
 }
