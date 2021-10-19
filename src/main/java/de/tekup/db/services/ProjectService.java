@@ -1,13 +1,16 @@
 package de.tekup.db.services;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import de.tekup.db.entities.EmployeeEntity;
 import de.tekup.db.entities.Project;
+import de.tekup.db.errors.SaveInDBException;
 import de.tekup.db.repositories.ProjectRepository;
 import lombok.AllArgsConstructor;
 
@@ -18,7 +21,14 @@ public class ProjectService {
 	private ProjectRepository projectRepository;
 	
 	public Project addNewProject(Project project) {
-		return projectRepository.save(project);
+		try {
+			Project prj=  projectRepository.save(project);
+				return prj;
+		} catch (Exception e) { 
+			throw new SaveInDBException("Problem in saving project : " + e.getMessage());
+		}
+		
+		
 	}
 	
 	public Project getProjectById(int projectID) {

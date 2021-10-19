@@ -34,6 +34,11 @@ public class ProjectCtrl {
 		return projectService.getAllProjects();
 	}
 	
+	@GetMapping("/{id}")
+	public Project getById(@PathVariable int id){
+		return projectService.getProjectById(id);
+	}
+	
 	@PostMapping("/{id}/add/employee")
 	public EmployeeEntity addEmployeeToProject(@PathVariable int id,
 			@RequestBody EmployeeEntity employeeEntity) {

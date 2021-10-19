@@ -55,10 +55,5 @@ public class EmployeeCtrl {
 		return empService.deleteEmpById(id);
 	}
 	
-	@ExceptionHandler(NoSuchElementException.class)
-	public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException e){
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-							.body("Error in Employee : "+e.getMessage());
-	}
 
 }
