@@ -1,5 +1,6 @@
 package de.tekup.db.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -36,5 +37,16 @@ public class ProjectService {
 		projectRepository.save(project);
 		return employeeEntity;
 	}
-
+	// code version
+	public List<Project> getStillOpenProjects(){
+		LocalDate now = LocalDate.now();
+		List<Project> projects = projectRepository.findAll();
+		projects.removeIf(p -> p.getEndDate().isBefore(now));
+		return projects;
+	}
+	
+	public List<Project> getStillOpenProjectsSql(){
+		LocalDate now = LocalDate.now();
+		return projectRepository.getOpenProjects(now);
+	}
 }

@@ -39,5 +39,10 @@ public class ProjectCtrl {
 			@RequestBody EmployeeEntity employeeEntity) {
 		return projectService.addEmployeeToProject(id, employeeEntity);
 	}
+	
+	@GetMapping("/opens")
+	public List<Project> getStillOpenedProject(){
+		return projectService.getStillOpenProjectsSql();
+	}
 
 }

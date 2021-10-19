@@ -40,4 +40,5 @@ public class EmployeeEntity {
 				.map(p -> p.getTitle())
 				.collect(Collectors.toList());
 	}
+	
 }
