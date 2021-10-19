@@ -21,8 +21,8 @@ public class AdminService {
 //		for (Matricule mat : admin.getMatricules()) {
 //			mat.setCreator(admin);
 //		}
-		
-		admin.getMatricules().forEach(mat->mat.setCreator(admin));
+		if(admin.getMatricules()!=null)
+			admin.getMatricules().forEach(mat->mat.setCreator(admin));
 		
 		return adminRepos.save(admin);
 	}
